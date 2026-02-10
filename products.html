@@ -4,8 +4,10 @@
   <meta charset="UTF-8" />
   <title>Products</title>
 
-  <link rel="stylesheet" href="base.css">
-  <link rel="stylesheet" href="products.css">
+  <!-- Base layout -->
+  <link rel="stylesheet" href="css/base.css">
+  <!-- Products page styles -->
+  <link rel="stylesheet" href="css/products.css">
 </head>
 
 <body>
@@ -16,7 +18,9 @@
     <nav>
       <a href="index.html">Home</a>
       <a href="categories.html">Shop</a>
-      <a href="cart.html">Cart 🛒</a>
+      <a href="cart.html">
+        Cart 🛒 <span id="cartCount">0</span>
+      </a>
     </nav>
   </header>
 
@@ -34,9 +38,15 @@
     © 2026 Handmade with 🧶 & ❤️ by Ruchi Chouhan
   </footer>
 
-  <!-- SCRIPTS -->
-  <script src="products.js"></script>
+  <!-- IMPORTANT: SCRIPT ORDER MATTERS -->
+
+  <!-- Cart functions MUST load first -->
   <script src="cart.js"></script>
+
+  <!-- Products data -->
+  <script src="products.js"></script>
+
+  <!-- Page logic -->
   <script>
     const params = new URLSearchParams(window.location.search);
     const category = params.get("category");
@@ -58,7 +68,9 @@
             </div>
 
             <div class="product-actions">
-              <a class="view-link" href="product.html?id=${p.id}">View</a>
+              <a class="view-link" href="product.html?id=${p.id}">
+                View
+              </a>
               <button onclick='addToCart(${JSON.stringify(p)})'>
                 Add to Cart
               </button>
@@ -66,6 +78,9 @@
           </div>
         `;
       });
+
+    // Update cart count on page load
+    updateCartCount();
   </script>
 
 </body>
