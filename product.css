@@ -1,28 +1,100 @@
-/* css/product.css */
+/* ================================
+   PRODUCT PAGE LAYOUT
+================================ */
 
-.product-page {
-  display: flex;
-  gap: 40px;
-  padding: 40px;
-  max-width: 1000px;
+.product-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  max-width: 1100px;
   margin: auto;
+  padding: 40px 20px;
 }
 
-.product-page img {
-  width: 400px;
-  border-radius: 10px;
+/* ================================
+   IMAGE
+================================ */
+
+.product-image img {
+  width: 100%;
+  border-radius: 14px;
+  object-fit: cover;
 }
 
-.product-page h1 {
-  margin-top: 0;
+/* ================================
+   INFO
+================================ */
+
+.product-info h1 {
+  font-size: 30px;
+  margin-bottom: 14px;
 }
+
+.product-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* ================================
+   PRICE & BADGE
+================================ */
+
+.price-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.price {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.made-to-order {
+  background: #f2f2f2;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* ================================
+   CTA
+================================ */
+
+.add-to-cart {
+  background: #222;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+.add-to-cart:hover {
+  opacity: 0.9;
+}
+
+/* ================================
+   META INFO
+================================ */
+
+.product-meta p {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+/* ================================
+   MOBILE
+================================ */
 
 @media (max-width: 768px) {
-  .product-page {
-    flex-direction: column;
+  .product-container {
+    grid-template-columns: 1fr;
   }
 
-  .product-page img {
-    width: 100%;
+  .product-info h1 {
+    font-size: 26px;
   }
 }
