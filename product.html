@@ -1,32 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
   <title>Product</title>
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/product.css">
+
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="product.css">
 </head>
+
 <body>
 
-<div id="productDetail"></div>
+  <!-- HEADER -->
+  <header class="header">
+    <h1>Soft Stitch Studio</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="categories.html">Shop</a>
+      <a href="cart.html">Cart 🛒</a>
+    </nav>
+  </header>
 
-<script src="products.js"></script>
-<script src="cart.js"></script>
-<script>
-  const id = new URLSearchParams(window.location.search).get("id");
-  const p = products.find(x => x.id === id);
+  <!-- SCROLLABLE CONTENT -->
+  <main>
+    <div id="productDetail"></div>
+  </main>
 
-  document.getElementById("productDetail").innerHTML = `
-    <div class="product-page">
-      <img src="${p.image}">
-      <div>
-        <h1>${p.name}</h1>
-        <p>${p.description}</p>
-        <h2>₹ ${p.price}</h2>
-        <button onclick='addToCart(${JSON.stringify(p)})'>Add to Cart</button>
-      </div>
-    </div>
-  `;
-</script>
+  <!-- FOOTER -->
+  <footer class="footer">
+    © 2026 Handmade with 🧶 & ❤️ by Ruchi Chouhan
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="products.js"></script>
+  <script src="cart.js"></script>
+  <script>
+    const id = new URLSearchParams(window.location.search).get("id");
+    const p = products.find(x => x.id === id);
+
+    document.getElementById("productDetail").innerHTML = `
+      <section class="product-container">
+
+        <div class="product-image">
+          <img src="${p.image}" alt="${p.name}">
+        </div>
+
+        <div class="product-info">
+          <h1>${p.name}</h1>
+
+          <p class="product-desc">
+            ${p.description}
+          </p>
+
+          <div class="price-box">
+            <span class="price">₹ ${p.price}</span>
+            <span class="made-to-order">Made to Order</span>
+          </div>
+
+          <button class="add-to-cart"
+            onclick='addToCart(${JSON.stringify(p)})'>
+            Add to Cart
+          </button>
+
+          <div class="product-meta">
+            <p>🧶 100% Handmade</p>
+            <p>🚚 Ships in 5–7 days</p>
+            <p>🎁 Perfect for gifting</p>
+          </div>
+        </div>
+
+      </section>
+    `;
+  </script>
 
 </body>
 </html>
