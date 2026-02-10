@@ -4,7 +4,7 @@ const products = [
     name: "Sunflower Throw Blanket",
     category: "throw-blankets",
     price: 5800,
-    image: "assets/images/sunflower.jpg",
+    image: "sunflower.jpg",
     description: "Handmade crochet throw that becomes a bouquet."
   },
   {
@@ -12,7 +12,7 @@ const products = [
     name: "English Rose Throw Blanket",
     category: "throw-blankets",
     price: 4500,
-    image: "assets/images/rose.jpg",
+    image: "rose.jpg",
     description: "Soft floral crochet throw."
   }
 ];
