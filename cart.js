@@ -186,8 +186,20 @@ function showUpiQr(upiUrl, amount) {
 }
 
 window.confirmPayment = function () {
+  // Remove QR modal
   const modal = document.getElementById("upiModal");
   if (modal) modal.remove();
 
+  // ✅ CLEAR CART
+  localStorage.removeItem("cart");
+
+  // ✅ RESET CART COUNT IN HEADER
+  const cartCountEl = document.getElementById("cartCount");
+  if (cartCountEl) {
+    cartCountEl.textContent = "0";
+  }
+
+  // ✅ REDIRECT TO CONFIRMATION PAGE
   window.location.href = "order-confirmation.html";
 };
+
