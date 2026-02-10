@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Products</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h1 class="page-title">Products</h1>
+<div id="productList" class="product-grid"></div>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const category = params.get("category");
+
+  const list = document.getElementById("productList");
+
+  products
+    .filter(p => p.category === category)
+    .forEach(p => {
+      list.innerHTML += `
+        <div class="product-card">
+          <img src="${p.image}">
+          <h3>${p.name}</h3>
+          <p>₹ ${p.price}</p>
+          <a href="product.html?id=${p.id}">View</a>
+          <button onclick='addToCart(${JSON.stringify(p)})'>Add to Cart</button>
+        </div>
+      `;
+    });
+</script>
+
+</body>
+</html>
