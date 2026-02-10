@@ -1,27 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Order Confirmation</title>
+  <meta charset="UTF-8" />
+  <title>Order Confirmation | Soft Stitch Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="order-confirmation.css" />
 </head>
+
 <body>
 
-<h1>Thank you for your order 🧶</h1>
+  <div class="order-box">
+    <h1>Thank you for your order 🧶</h1>
 
-<p>Please fill this form so we can process your order:</p>
+    <p>
+      Your payment has been noted successfully.<br />
+      Please fill in your details so we can process and ship your handmade items.
+    </p>
 
-<a
-  href="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform"
-  target="_blank"
->
-  Submit Order Details
-</a>
+    <!-- Google Form Link -->
+    <a
+      href="https://docs.google.com/forms/d/e/YOUR_REAL_FORM_ID/viewform"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Submit Order Details
+    </a>
 
-<script>
-  const order = JSON.parse(localStorage.getItem("lastOrder"));
-  if (order) {
-    console.log("Order received:", order);
-  }
-</script>
+    <div class="order-note">
+      We’ll contact you if we need any clarification 💛
+    </div>
+  </div>
 
 </body>
 </html>
