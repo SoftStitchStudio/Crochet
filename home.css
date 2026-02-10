@@ -1,0 +1,25 @@
+/* css/home.css */
+
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.category-grid .card {
+  background: white;
+  padding: 30px;
+  text-align: center;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.category-grid .card:hover {
+  transform: translateY(-4px);
+}
