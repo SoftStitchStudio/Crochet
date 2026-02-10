@@ -1,5 +1,5 @@
 // ================================
-// CART CORE (GLOBAL)
+// CART STORAGE
 // ================================
 
 window.getCart = function () {
@@ -11,13 +11,12 @@ window.saveCart = function (cart) {
 };
 
 // ================================
-// ADD TO CART (GLOBAL)
+// ADD TO CART
 // ================================
 
 window.addToCart = function (product) {
   let cart = getCart();
-
-  const existing = cart.find(item => item.id === product.id);
+  const existing = cart.find(i => i.id === product.id);
 
   if (existing) {
     existing.qty += 1;
@@ -51,7 +50,7 @@ window.calculateTotal = function () {
 };
 
 // ================================
-// RENDER CART (cart.html)
+// RENDER CART
 // ================================
 
 window.renderCart = function () {
@@ -59,12 +58,12 @@ window.renderCart = function () {
   const container = document.getElementById("cartContainer");
   const totalEl = document.getElementById("cartTotal");
 
-  if (!container) return;
-
   updateCartCount();
 
+  if (!container) return;
+
   if (!cart.length) {
-    container.innerHTML = `<p>Your cart is empty 😔</p>`;
+    container.innerHTML = "<p>Your cart is empty 😔</p>";
     if (totalEl) totalEl.textContent = "₹ 0";
     return;
   }
@@ -88,7 +87,7 @@ window.renderCart = function () {
 // ================================
 
 window.removeItem = function (id) {
-  let cart = getCart().filter(i => i.id !== id);
+  const cart = getCart().filter(i => i.id !== id);
   saveCart(cart);
   renderCart();
 };
@@ -97,44 +96,44 @@ window.removeItem = function (id) {
 // INIT
 // ================================
 
-document.addEventListener("DOMContentLoaded", updateCartCount);
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartCount();
+  renderCart();
+});
 
 // ================================
-// PAY NOW (UPI – MOBILE + DESKTOP SAFE)
+// PAY NOW (UPI)
 // ================================
 
 window.payNow = function () {
   const cart = getCart();
-
   if (!cart.length) {
     alert("Your cart is empty");
     return;
   }
 
   const total = calculateTotal();
+  const orderText = cart.map(i => `${i.name} x ${i.qty}`).join(", ");
 
-  const orderText = cart
-    .map(i => `${i.name} x ${i.qty}`)
-    .join(", ");
-
-  // 🔴 CHANGE THIS TO YOUR REAL UPI ID
-  const upiId = "yourupi@bank";
-  const merchant = "Soft Stitch Studio";
+  // ✅ YOUR REAL UPI ID
+  const upiId = "kunal@okaxis";
+  const merchantName = "Soft Stitch Studio";
 
   const note = encodeURIComponent(
     `Order: ${orderText} | Total ₹${total}`
   );
 
   const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(
-    merchant
+    merchantName
   )}&am=${total}&cu=INR&tn=${note}`;
 
-  // Save order snapshot (for tracking)
+  // Save order snapshot (for reference)
   localStorage.setItem(
     "lastOrder",
     JSON.stringify({
       items: cart,
       total: total,
+      paidVia: "UPI",
       time: new Date().toISOString()
     })
   );
@@ -142,22 +141,22 @@ window.payNow = function () {
   const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
   if (isMobile) {
-    // 📱 Mobile → open UPI app
+    // 📱 Open UPI app directly
     window.location.href = upiUrl;
   } else {
-    // 💻 Desktop → show QR instead of failing
+    // 💻 Show QR for desktop
     showUpiQr(upiUrl, total);
   }
 };
 
 // ================================
-// UPI QR (DESKTOP FALLBACK)
+// QR MODAL
 // ================================
 
 function showUpiQr(upiUrl, amount) {
-  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(
-    upiUrl
-  )}`;
+  const qrUrl =
+    "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" +
+    encodeURIComponent(upiUrl);
 
   const modal = document.createElement("div");
   modal.id = "upiModal";
@@ -185,21 +184,21 @@ function showUpiQr(upiUrl, amount) {
   document.body.appendChild(modal);
 }
 
+// ================================
+// PAYMENT CONFIRM
+// ================================
+
 window.confirmPayment = function () {
-  // Remove QR modal
   const modal = document.getElementById("upiModal");
   if (modal) modal.remove();
 
-  // ✅ CLEAR CART
+  // Clear cart
   localStorage.removeItem("cart");
 
-  // ✅ RESET CART COUNT IN HEADER
+  // Reset cart count
   const cartCountEl = document.getElementById("cartCount");
-  if (cartCountEl) {
-    cartCountEl.textContent = "0";
-  }
+  if (cartCountEl) cartCountEl.textContent = "0";
 
-  // ✅ REDIRECT TO CONFIRMATION PAGE
+  // Redirect
   window.location.href = "order-confirmation.html";
 };
-
