@@ -51,7 +51,7 @@ window.calculateTotal = function () {
 };
 
 // ================================
-// RENDER CART (for cart.html)
+// RENDER CART (cart.html)
 // ================================
 
 window.renderCart = function () {
@@ -73,8 +73,8 @@ window.renderCart = function () {
 
   cart.forEach(item => {
     container.innerHTML += `
-      <div>
-        ${item.name} – ₹ ${item.price} × ${item.qty}
+      <div class="cart-row">
+        <span>${item.name} – ₹ ${item.price} × ${item.qty}</span>
         <button onclick="removeItem('${item.id}')">✕</button>
       </div>
     `;
@@ -99,9 +99,8 @@ window.removeItem = function (id) {
 
 document.addEventListener("DOMContentLoaded", updateCartCount);
 
-
 // ================================
-// PAY NOW (UPI FLOW)
+// PAY NOW (UPI – MOBILE + DESKTOP SAFE)
 // ================================
 
 window.payNow = function () {
@@ -114,25 +113,23 @@ window.payNow = function () {
 
   const total = calculateTotal();
 
-  // Create readable order summary
   const orderText = cart
     .map(i => `${i.name} x ${i.qty}`)
     .join(", ");
 
-  // Your UPI ID (CHANGE THIS)
+  // 🔴 CHANGE THIS TO YOUR REAL UPI ID
   const upiId = "yourupi@bank";
+  const merchant = "Soft Stitch Studio";
 
-  // Encode for URL
   const note = encodeURIComponent(
-    `Order: ${orderText} | Total: ₹${total}`
+    `Order: ${orderText} | Total ₹${total}`
   );
 
-  const upiUrl = `upi://pay?pa=${upiId}&pn=Soft Stitch Studio&am=${total}&cu=INR&tn=${note}`;
+  const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(
+    merchant
+  )}&am=${total}&cu=INR&tn=${note}`;
 
-  // Open UPI app
-  window.location.href = upiUrl;
-
-  // Save order snapshot (IMPORTANT)
+  // Save order snapshot (for tracking)
   localStorage.setItem(
     "lastOrder",
     JSON.stringify({
@@ -142,8 +139,55 @@ window.payNow = function () {
     })
   );
 
-  // Redirect to confirmation page after 5 seconds
-  setTimeout(() => {
-    window.location.href = "order-confirmation.html";
-  }, 5000);
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  if (isMobile) {
+    // 📱 Mobile → open UPI app
+    window.location.href = upiUrl;
+  } else {
+    // 💻 Desktop → show QR instead of failing
+    showUpiQr(upiUrl, total);
+  }
+};
+
+// ================================
+// UPI QR (DESKTOP FALLBACK)
+// ================================
+
+function showUpiQr(upiUrl, amount) {
+  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(
+    upiUrl
+  )}`;
+
+  const modal = document.createElement("div");
+  modal.id = "upiModal";
+  modal.style = `
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+  `;
+
+  modal.innerHTML = `
+    <div style="background:#fff;padding:24px;border-radius:16px;text-align:center;max-width:320px;width:100%;">
+      <h3>Pay ₹ ${amount}</h3>
+      <p>Scan with any UPI app</p>
+      <img src="${qrUrl}" style="width:100%;border-radius:12px;margin:12px 0;" />
+      <button onclick="confirmPayment()" style="padding:10px 18px;border:none;border-radius:8px;background:#000;color:#fff;">
+        I have paid
+      </button>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+}
+
+window.confirmPayment = function () {
+  const modal = document.getElementById("upiModal");
+  if (modal) modal.remove();
+
+  window.location.href = "order-confirmation.html";
 };
