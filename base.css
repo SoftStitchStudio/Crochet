@@ -122,3 +122,28 @@ button:hover {
     padding: 20px;
   }
 }
+
+/* ================================
+   TOAST NOTIFICATION
+================================ */
+
+.toast {
+  position: fixed;
+  bottom: 90px;
+  right: 30px;
+  background: #222;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 30px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(10px);
+  z-index: 2000;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
