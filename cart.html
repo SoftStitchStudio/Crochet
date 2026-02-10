@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cart</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h1>Your Cart</h1>
+<div id="cartItems"></div>
+
+<script src="js/cart.js"></script>
+<script>
+  const cart = getCart();
+  const div = document.getElementById("cartItems");
+
+  if (!cart.length) {
+    div.innerHTML = "<p>Your cart is empty 😔</p>";
+  }
+
+  cart.forEach(i => {
+    div.innerHTML += `<p>${i.name} – ₹${i.price}</p>`;
+  });
+</script>
+
+</body>
+</html>
