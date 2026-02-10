@@ -1,37 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
   <title>Products</title>
+
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/products.css">
 </head>
+
 <body>
 
-<h1 class="page-title">Products</h1>
-<div id="productList" class="product-grid"></div>
+  <!-- HEADER -->
+  <header class="header">
+    <h1>Soft Stitch Studio</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="categories.html">Shop</a>
+      <a href="cart.html">Cart 🛒</a>
+    </nav>
+  </header>
 
-<script src="products.js"></script>
-<script src="cart.js"></script>
-<script>
-  const params = new URLSearchParams(window.location.search);
-  const category = params.get("category");
+  <!-- SCROLLABLE CONTENT -->
+  <main>
 
-  const list = document.getElementById("productList");
+    <h1 class="page-title">Products</h1>
 
-  products
-    .filter(p => p.category === category)
-    .forEach(p => {
-      list.innerHTML += `
-        <div class="product-card">
-          <img src="${p.image}">
-          <h3>${p.name}</h3>
-          <p>₹ ${p.price}</p>
-          <a href="product.html?id=${p.id}">View</a>
-          <button onclick='addToCart(${JSON.stringify(p)})'>Add to Cart</button>
-        </div>
-      `;
-    });
-</script>
+    <div id="productList" class="product-grid"></div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    © 2026 Handmade with 🧶 & ❤️ by Ruchi Chouhan
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="products.js"></script>
+  <script src="cart.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get("category");
+
+    const list = document.getElementById("productList");
+
+    products
+      .filter(p => p.category === category)
+      .forEach(p => {
+        list.innerHTML += `
+          <div class="product-card">
+            <div class="product-image">
+              <img src="${p.image}" alt="${p.name}">
+            </div>
+
+            <div class="product-info">
+              <h3>${p.name}</h3>
+              <p class="price">₹ ${p.price}</p>
+            </div>
+
+            <div class="product-actions">
+              <a class="view-link" href="product.html?id=${p.id}">View</a>
+              <button onclick='addToCart(${JSON.stringify(p)})'>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        `;
+      });
+  </script>
 
 </body>
 </html>
