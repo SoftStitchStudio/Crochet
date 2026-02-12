@@ -34,7 +34,7 @@
 
 /* Image Box */
 .product-image {
-  background: #f4efe9;
+  background: #f3eee8;
   border-radius: 18px;
   height: 210px;
 
@@ -93,7 +93,7 @@
 
 /* Add to Cart Button */
 .product-actions button {
-  background: linear-gradient(135deg, #c97b4f, #b9683f);
+  background: linear-gradient(135deg, #d88c63, #c7794e);
   color: white;
   border: none;
   padding: 9px 18px;
@@ -106,5 +106,5 @@
 
 .product-actions button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(185,104,63,0.35);
+  box-shadow: 0 6px 15px rgba(200,120,78,0.35);
 }
