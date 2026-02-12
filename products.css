@@ -112,3 +112,44 @@ body {
   background: #c7794e;
   transform: translateY(-2px);
 }
+
+/* =====================================
+   MOBILE – PRODUCT PAGE
+===================================== */
+
+@media (max-width: 768px) {
+
+  .product-wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .product-images {
+    width: 100%;
+  }
+
+  .product-images img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .product-details {
+    width: 100%;
+    text-align: center;
+  }
+
+  .product-details h2 {
+    font-size: 22px;
+  }
+
+  .product-price {
+    font-size: 20px;
+  }
+
+  .add-to-cart-btn {
+    width: 100%;
+    padding: 14px;
+  }
+}
+
