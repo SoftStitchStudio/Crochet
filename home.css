@@ -36,31 +36,47 @@
   color: #777;
 }
 
-/* ===============================
-   MOBILE
-================================ */
-
+/* =========================
+   MOBILE RESPONSIVE FIX
+========================= */
 @media (max-width: 768px) {
 
-  .page-title {
-    font-size: 26px;
-    margin-bottom: 30px;
+  .container {
+    width: 100%;
+    padding: 0 16px;
   }
 
-  .category-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .product-page {
+    display: flex;
+    flex-direction: column;
   }
 
-  .category-grid .card {
-    padding: 25px 20px;
+  .product-images {
+    width: 100%;
+    margin-bottom: 20px;
   }
 
-  .category-grid .card h3 {
+  .product-images img {
+    width: 100%;
+    height: auto;
+  }
+
+  .product-details {
+    width: 100%;
+    text-align: center;
+  }
+
+  .product-details h1 {
+    font-size: 22px;
+  }
+
+  .price {
     font-size: 18px;
   }
 
-  .category-grid .card p {
-    font-size: 14px;
+  .add-to-cart {
+    width: 100%;
   }
+
 }
+
