@@ -80,15 +80,38 @@ main {
   color: #3a3a3a;
 }
 
-/* FOOTER */
+/* ===============================
+   FOOTER – Elegant Signature
+================================= */
+
 .footer {
   background: #ffffff;
   border-top: 1px solid #eee;
   text-align: center;
-  padding: 20px;
+  padding: 22px;
   font-size: 14px;
   color: #777;
 
   position: sticky;
   bottom: 0;
+}
+
+.footer .footer-brand {
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 6px;
+}
+
+.footer .footer-signature {
+  font-size: 18px;
+  font-weight: 600;
+  color: #d88c63; /* warm Etsy-like accent */
+  letter-spacing: 0.5px;
+}
+
+.footer .footer-signature span {
+  color: #3c3c3c;
+  font-weight: 500;
 }
