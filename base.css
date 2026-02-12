@@ -1,17 +1,19 @@
-/* ========== GLOBAL RESET ========== */
+/* ===== BASE RESET ===== */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ========== BODY LAYOUT (Sticky Footer Setup) ========== */
 html, body {
   height: 100%;
-  font-family: "Segoe UI", sans-serif;
-  background-color: #fdfbf8; /* warm Etsy tone */
-  color: #333;
+  font-family: 'Segoe UI', sans-serif;
+  background: #faf8f5;
+  color: #2f2f2f;
 }
+
+/* ===== FLEX LAYOUT FOR STICKY FOOTER ===== */
 
 body {
   display: flex;
@@ -19,75 +21,58 @@ body {
   min-height: 100vh;
 }
 
-.page-wrapper {
+main {
   flex: 1;
+  padding: 40px 5%;
 }
 
-/* ========== CONTAINER ========== */
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+/* ===== HEADER ===== */
 
-/* ========== HEADER ========== */
-.header {
-  background: #ffffff;
+header {
+  background: #fff;
+  padding: 20px 5%;
   border-bottom: 1px solid #eee;
-  padding: 20px 0;
 }
 
-.header-inner {
+.header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* Logo */
 .logo {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 600;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  color: #3a2e2a;
 }
 
-/* ========== NAVIGATION ========== */
-.nav a {
-  margin-left: 28px;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: 0.3s ease;
-}
-
-.nav a:hover {
-  color: #f1641e;
-}
-
-/* Cart badge */
-.cart-link span {
-  font-weight: 600;
-}
-
-/* ========== PAGE TITLE ========== */
-.page-title {
-  margin: 50px 0 30px;
-  font-size: 34px;
-  font-weight: 600;
-}
-
-/* ========== PRODUCT GRID BASE (if products.css doesn't override) ========== */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+/* Navigation */
+nav {
+  display: flex;
+  align-items: center;
   gap: 30px;
 }
 
-/* ========== FOOTER ========== */
-.footer {
-  background: #ffffff;
-  border-top: 1px solid #eee;
-  padding: 20px 0;
+nav a {
+  text-decoration: none;
+  color: #5a4a42;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #c27c5b;
+}
+
+/* ===== FOOTER ===== */
+
+footer {
+  background: #fff;
+  padding: 20px;
   text-align: center;
+  border-top: 1px solid #eee;
   font-size: 14px;
-  color: #777;
-  margin-top: 40px;
+  color: #7a6f6a;
 }
