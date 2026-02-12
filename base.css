@@ -10,29 +10,26 @@
 html, body {
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
-  background: #fdfaf6;
-  color: #333;
+  background: #f8f4ef; /* warmer cozy tone */
+  color: #3c3c3c;
 }
 
 /* ===============================
    LAYOUT STRUCTURE
-   Header (sticky)
-   Scrollable Main
-   Footer (sticky)
 ================================= */
 
 body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  overflow: hidden; /* prevent full page scroll */
+  overflow: hidden;
 }
 
 /* HEADER */
 .header {
   background: #ffffff;
   border-bottom: 1px solid #eee;
-  padding: 18px 40px;
+  padding: 20px 60px;
 
   display: flex;
   justify-content: space-between;
@@ -44,14 +41,14 @@ body {
 }
 
 .header h1 {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 600;
   letter-spacing: 0.5px;
 }
 
 .header nav {
   display: flex;
-  gap: 30px;
+  gap: 35px;
   align-items: center;
 }
 
@@ -64,22 +61,23 @@ body {
 }
 
 .header nav a:hover {
-  color: #e07a5f;
+  color: #d88c63;
 }
 
 /* MAIN SCROLL AREA */
 main {
   flex: 1;
-  overflow-y: auto; /* only this area scrolls */
-  padding: 60px 20px;
+  overflow-y: auto;
+  padding: 70px 40px 90px;
 }
 
 /* PAGE TITLES */
 .page-title {
-  font-size: 36px;
+  font-size: 38px;
   font-weight: 600;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
+  color: #3a3a3a;
 }
 
 /* FOOTER */
@@ -87,7 +85,7 @@ main {
   background: #ffffff;
   border-top: 1px solid #eee;
   text-align: center;
-  padding: 18px;
+  padding: 20px;
   font-size: 14px;
   color: #777;
 
