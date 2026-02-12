@@ -1,5 +1,6 @@
-/* ===== BASE RESET ===== */
-
+/* ===============================
+   GLOBAL RESET
+================================= */
 * {
   margin: 0;
   padding: 0;
@@ -9,12 +10,13 @@
 html, body {
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
-  background: #faf8f5;
-  color: #2f2f2f;
+  background: #fdfaf6;
+  color: #333;
 }
 
-/* ===== FLEX LAYOUT FOR STICKY FOOTER ===== */
-
+/* ===============================
+   STICKY FOOTER LAYOUT
+================================= */
 body {
   display: flex;
   flex-direction: column;
@@ -23,56 +25,66 @@ body {
 
 main {
   flex: 1;
-  padding: 40px 5%;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
-/* ===== HEADER ===== */
-
-header {
+/* ===============================
+   HEADER
+================================= */
+.header {
   background: #fff;
-  padding: 20px 5%;
   border-bottom: 1px solid #eee;
-}
+  padding: 18px 40px;
 
-.header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Logo */
-.logo {
-  font-size: 28px;
+.header h1 {
+  font-size: 22px;
   font-weight: 600;
-  letter-spacing: 1px;
-  color: #3a2e2a;
+  letter-spacing: 0.5px;
 }
 
-/* Navigation */
-nav {
+.header nav {
   display: flex;
-  align-items: center;
   gap: 30px;
+  align-items: center;
 }
 
-nav a {
+.header nav a {
   text-decoration: none;
-  color: #5a4a42;
+  color: #444;
+  font-size: 15px;
   font-weight: 500;
-  transition: 0.3s;
+  transition: 0.2s ease;
 }
 
-nav a:hover {
-  color: #c27c5b;
+.header nav a:hover {
+  color: #e07a5f;
 }
 
-/* ===== FOOTER ===== */
+/* ===============================
+   PAGE TITLES
+================================= */
+.page-title {
+  font-size: 32px;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
 
-footer {
+/* ===============================
+   FOOTER (STICKY)
+================================= */
+.footer {
   background: #fff;
-  padding: 20px;
-  text-align: center;
   border-top: 1px solid #eee;
+  text-align: center;
+  padding: 18px;
   font-size: 14px;
-  color: #7a6f6a;
+  color: #777;
 }
