@@ -42,7 +42,7 @@ const products = [
   {
     id: "rose",
     name: "Rose Flower",
-    category: "keychains",
+    category: "decor",
     price: 4500,
     image: "Rose_PP.jpg",
     description: "Soft floral crochet throw."
