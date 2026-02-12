@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Product</title>
+  <title>Product | Soft Stitch Studio</title>
 
   <link rel="stylesheet" href="base.css">
   <link rel="stylesheet" href="product.css">
@@ -12,19 +12,23 @@
 
   <!-- HEADER -->
   <header class="header">
-    <h1>Soft Stitch Studio</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="categories.html">Shop</a>
-      <a href="cart.html">
-        Cart 🛒 <span id="cartCount">0</span>
-      </a>
-    </nav>
+    <div class="container header-inner">
+      <h1>Soft Stitch Studio</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="categories.html">Shop</a>
+        <a href="cart.html">
+          Cart 🛒 <span id="cartCount">0</span>
+        </a>
+      </nav>
+    </div>
   </header>
 
   <!-- MAIN -->
-  <main>
-    <div id="productDetail"></div>
+  <main class="page-wrapper">
+    <div class="container">
+      <div id="productDetail"></div>
+    </div>
   </main>
 
   <!-- FOOTER -->
@@ -47,7 +51,7 @@
         </div>
 
         <div class="product-info">
-          <h1>${p.name}</h1>
+          <h2>${p.name}</h2>
 
           <p class="product-desc">${p.description}</p>
 
