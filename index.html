@@ -1,35 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Soft Stitch Studio - Crochet Store</title>
+  <meta charset="UTF-8">
+  <title>Soft Stitch Studio</title>
 
-  <!-- Base layout FIRST -->
-  <link rel="stylesheet" href="base.css" />
-  <!-- Page-specific CSS -->
-  <link rel="stylesheet" href="home.css" />
+  <link rel="stylesheet" href="base.css">
 </head>
 
 <body>
 
-  <!-- HEADER (Sticky Top) -->
+  <!-- HEADER -->
   <header class="header">
     <h1>Soft Stitch Studio</h1>
     <nav>
       <a href="index.html">Home</a>
       <a href="categories.html">Shop</a>
-      <a href="cart.html">Cart 🛒 <span id="cartCount">0</span></a>
+      <a href="cart.html">
+        Cart 🛒 <span id="cartCount">0</span>
+      </a>
     </nav>
   </header>
 
-  <!-- MAIN (Scrollable Area) -->
+  <!-- MAIN -->
   <main>
+    <h1 class="page-title">Find Your Favorites Among the Top Picks!</h1>
 
-    <section class="hero">
-      <h2>Find Your Favorites Among the Top Picks!</h2>
-    </section>
-
-    <section class="category-grid">
+    <div class="category-grid">
       <a href="products.html?category=keychains" class="card">
         <h3>Key Chains</h3>
         <p>Soft Cute Keychains</p>
@@ -44,14 +40,14 @@
         <h3>Decor</h3>
         <p>Beautiful Showpieces</p>
       </a>
-    </section>
-
+    </div>
   </main>
 
-  <!-- FOOTER (Sticky Bottom) -->
+  <!-- FOOTER -->
   <footer class="footer">
-    <p>© 2026 Handmade with 🧶 & ❤️ by Ruchi Chouhan</p>
+    © 2026 Handmade with 🧶 & ❤️ by Ruchi Chouhan
   </footer>
 
+  <script src="cart.js"></script>
 </body>
 </html>
