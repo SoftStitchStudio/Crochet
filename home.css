@@ -1,25 +1,45 @@
-/* css/home.css */
-
+/* ===============================
+   HERO SECTION
+================================= */
 .hero {
   text-align: center;
-  padding: 50px 20px;
+  margin-bottom: 40px;
 }
 
+/* ===============================
+   CATEGORY GRID
+================================= */
+
 .category-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
 }
 
 .category-grid .card {
-  background: white;
-  padding: 30px;
+  background: #ffffff;
+  padding: 40px 20px;
   text-align: center;
-  border-radius: 8px;
-  transition: transform 0.2s ease;
+  border-radius: 16px;
+
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  transition: all 0.25s ease;
+}
+
+.category-grid .card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.category-grid .card p {
+  font-size: 14px;
+  color: #777;
 }
 
 .category-grid .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
