@@ -1,15 +1,107 @@
-/* =====================================
-   MOBILE RESPONSIVE – GLOBAL
-===================================== */
+/* ===============================
+   GLOBAL LAYOUT
+================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background: #f8f5f2;
+  color: #3e3e3e;
+}
+
+/* ===============================
+   HEADER
+================================ */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 60px;
+  background: #ffffff;
+  border-bottom: 1px solid #eee;
+}
+
+.header h1 {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.header nav {
+  display: flex;
+  gap: 30px;
+}
+
+.header nav a {
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+}
+
+.header nav a:hover {
+  color: #c97c5d;
+}
+
+/* ===============================
+   MAIN SCROLL AREA
+================================ */
+
+main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 60px;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  background: #ffffff;
+  border-top: 1px solid #eee;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer .footer-signature {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.footer .brand-name {
+  font-weight: 700;
+  color: #c97c5d;
+}
+
+/* ===============================
+   MOBILE RESPONSIVE
+================================ */
 
 @media (max-width: 768px) {
 
-  /* Header */
   .header {
-    padding: 15px 20px;
     flex-direction: column;
     gap: 10px;
     align-items: flex-start;
+    padding: 15px 20px;
   }
 
   .header h1 {
@@ -17,27 +109,15 @@
   }
 
   .header nav {
-    gap: 20px;
     width: 100%;
     justify-content: space-between;
+    gap: 15px;
   }
 
-  .header nav a {
-    font-size: 14px;
-  }
-
-  /* Main scroll area spacing */
   main {
-    padding: 40px 20px 90px;
+    padding: 30px 20px 100px;
   }
 
-  /* Page title */
-  .page-title {
-    font-size: 26px;
-    margin-bottom: 30px;
-  }
-
-  /* Footer */
   .footer {
     padding: 18px;
   }
