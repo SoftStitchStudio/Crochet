@@ -1,45 +1,58 @@
 /* ===============================
-   HERO SECTION
-================================= */
-.hero {
+   INDEX PAGE
+================================ */
+
+.page-title {
   text-align: center;
-  margin-bottom: 40px;
+  font-size: 40px;
+  margin-bottom: 60px;
 }
 
-/* ===============================
-   CATEGORY GRID
-================================= */
-
 .category-grid {
-  max-width: 1000px;
-  margin: 0 auto;
-
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
 
-.category-grid .card {
+.category-card {
   background: #ffffff;
-  padding: 40px 20px;
+  padding: 40px 30px;
+  border-radius: 18px;
   text-align: center;
-  border-radius: 16px;
-
-  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-  transition: all 0.25s ease;
+  transition: 0.3s ease;
 }
 
-.category-grid .card h3 {
-  font-size: 20px;
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.category-card h2 {
+  color: #6a2c91;
   margin-bottom: 10px;
 }
 
-.category-grid .card p {
-  font-size: 14px;
+.category-card p {
   color: #777;
 }
 
-.category-grid .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+/* ===============================
+   MOBILE
+================================ */
+
+@media (max-width: 768px) {
+
+  .page-title {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .category-card {
+    padding: 30px 20px;
+  }
 }
