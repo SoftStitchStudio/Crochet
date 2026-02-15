@@ -54,5 +54,21 @@ const products = [
     price: 950,
     image: "FlowerPot_Yellow_PP.jpg",
     description: "Charming crochet flower in a mini pot, carefully handmade for a cozy home vibe. A maintenance-free bloom that adds warmth to any corner."
+  },
+  {
+    id: "tiger",
+    name: "Tiger Keychain",
+    category: "keychains",
+    price: 250,
+    image: "Tiger_PP.jpg",
+    description: "A cute hand-crocheted tiger keychain crafted with fine detailing and soft premium yarn. Fierce yet adorable, it adds a playful wild touch to your keys, bags, or gifting moments."
+  },
+  {
+    id: "brocoli",
+    name: "Brocoli Keychain",
+    category: "keychains",
+    price: 150,
+    image: "Brocoli_PP.jpg",
+    description: "An adorable crochet broccoli keychain, handmade stitch by stitch with love. Quirky, lightweight, and fun — perfect for food lovers who enjoy a little humor in their everyday accessories."
   }
 ];
