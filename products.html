@@ -36,52 +36,78 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-  <div class="footer-brand">
-    © 2026 Soft Stitch Studio
-  </div>
-  <div class="footer-signature">
-    Handmade with 🧶 & ❤️ by <span>Ruchika Chouhan</span>
-  </div>
-</footer>
-
+    <div class="footer-brand">
+      © 2026 Soft Stitch Studio
+    </div>
+    <div class="footer-signature">
+      Handmade with 🧶 & ❤️ by <span>Ruchika Chouhan</span>
+    </div>
+  </footer>
 
   <!-- SCRIPTS -->
   <script src="cart.js"></script>
   <script src="products.js"></script>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const category = params.get("category");
+    document.addEventListener("DOMContentLoaded", function () {
 
-    const list = document.getElementById("productList");
+      const params = new URLSearchParams(window.location.search);
+      const category = params.get("category");
+      const list = document.getElementById("productList");
 
-    products
-      .filter(p => p.category === category)
-      .forEach(p => {
-        list.innerHTML += `
-          <div class="product-card">
-            <div class="product-image">
-              <img src="${p.image}" alt="${p.name}">
-            </div>
+      if (!window.products) {
+        list.innerHTML = "<p style='text-align:center;'>Products failed to load.</p>";
+        return;
+      }
 
-            <div class="product-info">
-              <h3>${p.name}</h3>
-              <p class="price">₹ ${p.price}</p>
-            </div>
+      if (!category) {
+        list.innerHTML = "<p style='text-align:center;'>No category selected.</p>";
+        return;
+      }
 
-            <div class="product-actions">
-              <a class="view-link" href="product.html?id=${p.id}">
-                View
-              </a>
-              <button onclick='addToCart(${JSON.stringify(p)})'>
-                Add to Cart
-              </button>
-            </div>
+      const filteredProducts = products.filter(p => p.category === category);
+
+      if (filteredProducts.length === 0) {
+        list.innerHTML = "<p style='text-align:center;'>No products found.</p>";
+        return;
+      }
+
+      filteredProducts.forEach(p => {
+
+        const card = document.createElement("div");
+        card.className = "product-card";
+
+        card.innerHTML = `
+          <div class="product-image">
+            <img src="${p.image}" alt="${p.name}">
+          </div>
+
+          <div class="product-info">
+            <h3>${p.name}</h3>
+            <p class="price">₹ ${p.price}</p>
+          </div>
+
+          <div class="product-actions">
+            <button class="add-btn">Add to Cart</button>
           </div>
         `;
+
+        /* Entire card clickable */
+        card.addEventListener("click", () => {
+          window.location.href = "product.html?id=" + p.id;
+        });
+
+        /* Prevent redirect when clicking Add to Cart */
+        card.querySelector(".add-btn").addEventListener("click", (e) => {
+          e.stopPropagation();
+          addToCart(p);
+        });
+
+        list.appendChild(card);
       });
 
-    updateCartCount();
+      updateCartCount();
+    });
   </script>
 
 </body>
