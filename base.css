@@ -1,4 +1,20 @@
-/* ===== GLOBAL LAYOUT STRUCTURE ===== */
+/* ===============================
+   ROOT VARIABLES (Luxury Palette)
+=============================== */
+
+:root {
+  --bg-main: #F6F3EE;
+  --bg-soft: #FBF9F6;
+  --text-dark: #2C2A28;
+  --text-light: #6B6661;
+  --accent: #B46A4D;
+  --accent-dark: #8F5039;
+  --border-soft: #E8E2DA;
+}
+
+/* ===============================
+   GLOBAL LAYOUT STRUCTURE
+=============================== */
 
 html, body {
   height: 100%;
@@ -9,32 +25,36 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
 
-/* Main content wrapper */
-main {
-  flex: 1;
-}
-
-body {
   background: var(--bg-main);
   color: var(--text-dark);
   font-family: 'Cormorant Garamond', serif;
   letter-spacing: 0.4px;
 }
 
-/* Header */
+/* Main content grows to push footer down */
+main {
+  flex: 1;
+}
+
+/* ===============================
+   HEADER (Sticky Luxury Style)
+=============================== */
+
 header {
-  background: transparent;
-  padding: 30px 8%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: rgba(246, 243, 238, 0.95);
+  backdrop-filter: blur(6px);
+
+  padding: 28px 8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   border-bottom: 1px solid var(--border-soft);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  backdrop-filter: blur(6px);
 }
 
 /* Logo */
@@ -43,7 +63,7 @@ header {
   font-weight: 500;
 }
 
-/* Nav */
+/* Navigation */
 nav a {
   margin-left: 35px;
   text-decoration: none;
@@ -67,27 +87,32 @@ nav a:hover::after {
   width: 100%;
 }
 
-/* Footer */
+/* ===============================
+   FOOTER (Sticky Smart Footer)
+=============================== */
+
 footer {
-  border-top: 1px solid var(--border-soft);
+  margin-top: auto;
   padding: 60px 0;
   text-align: center;
-  font-size: 15px;
+  border-top: 1px solid var(--border-soft);
+  font-size: 14px;
   color: var(--text-light);
-  margin-top: 120px;
+  background: transparent;
 }
 
-@media (max-width: 768px) {
-  .product-grid {
-    grid-template-columns: 1fr;
-    gap: 60px;
-  }
+/* ===============================
+   MOBILE RESPONSIVE
+=============================== */
 
-  .product-container {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 768px) {
 
   header {
     padding: 20px 5%;
+  }
+
+  nav a {
+    margin-left: 20px;
+    font-size: 14px;
   }
 }
