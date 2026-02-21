@@ -1,11 +1,24 @@
 /* ===============================
+   ROOT VARIABLES – EARTHY THEME
+================================ */
+:root {
+  --bg-main: #F4EFE9;
+  --bg-card: #EDE4DA;
+  --accent: #C27B5B;
+  --accent-dark: #A86344;
+  --olive: #6E8B6A;
+  --text-dark: #3B2F2F;
+  --border-soft: #E3D9CE;
+  --shadow-soft: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* ===============================
    GLOBAL RESET
 ================================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
 }
 
 html, body {
@@ -13,39 +26,40 @@ html, body {
 }
 
 /* ===============================
-   LAYOUT STRUCTURE
+   STICKY LAYOUT STRUCTURE
 ================================ */
-
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* safer than height:100vh */
-  background: #faf7f3;
-  color: #3c3c3c;
-  overflow: hidden; /* scroll only in main */
+  min-height: 100vh;
+  background: var(--bg-main);
+  color: var(--text-dark);
+  font-family: 'Inter', sans-serif;
+  overflow: hidden; /* Prevent body scroll */
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
 }
 
 /* ===============================
-   HEADER
+   HEADER (Sticky)
 ================================ */
-
 .header {
   position: sticky;
   top: 0;
   z-index: 1000;
 
+  background: var(--bg-main);
+  padding: 22px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding: 20px 60px;
-  background: #ffffff;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--border-soft);
 }
 
 .header h1 {
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 26px;
 }
 
 .header nav {
@@ -55,18 +69,17 @@ body {
 
 .header nav a {
   text-decoration: none;
-  color: #444;
+  color: var(--text-dark);
   font-weight: 500;
 }
 
 .header nav a:hover {
-  color: #c97c5d;
+  color: var(--accent);
 }
 
 /* ===============================
-   MAIN SCROLL AREA
+   MAIN (Scrollable Area)
 ================================ */
-
 main {
   flex: 1;
   overflow-y: auto;
@@ -74,139 +87,35 @@ main {
 }
 
 /* ===============================
-   FOOTER
+   FOOTER (Sticky)
 ================================ */
-
 .footer {
   position: sticky;
   bottom: 0;
-  background: #ffffff;
-  border-top: 1px solid #eee;
-  padding: 20px;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-soft);
   text-align: center;
+  padding: 25px;
 }
 
-.footer .footer-signature {
+.footer-signature {
   font-size: 18px;
+  color: var(--accent);
   font-weight: 500;
 }
 
-.footer .brand-name {
-  font-weight: 700;
-  color: #c97c5d;
-}
-
-
-/* =========================
-   MOBILE RESPONSIVE FIX
-========================= */
+/* ===============================
+   MOBILE
+================================ */
 @media (max-width: 768px) {
 
-  /* General Container */
-  .container {
-    width: 100%;
-    padding: 0 16px;
-  }
-
-  /* =========================
-     HEADER FIX
-  ========================= */
-
-  header {
-    padding: 12px 16px;
-  }
-
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .logo {
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 1.2;
-  }
-
-  /* Make nav clean & stacked */
-  .nav-links {
-    display: flex;
-    gap: 14px;
-    font-size: 15px;
-  }
-
-  .nav-links a {
-    text-decoration: none;
-  }
-
-  /* Cart alignment fix */
-  .cart {
-    font-size: 18px;
-    position: relative;
-  }
-
-  .cart span {
-    font-size: 13px;
-    position: absolute;
-    top: -6px;
-    right: -10px;
-  }
-
-  /* =========================
-     PRODUCT PAGE FIX
-  ========================= */
-
-  .product-page {
-    display: flex;
+  .header {
     flex-direction: column;
+    gap: 10px;
+    padding: 20px;
   }
 
-  .product-images {
-    width: 100%;
-    margin-bottom: 20px;
+  main {
+    padding: 30px 20px 90px;
   }
-
-  .product-images img {
-    width: 100%;
-    height: auto;
-  }
-
-  .product-details {
-    width: 100%;
-    text-align: center;
-  }
-
-  .product-details h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-
-  .price {
-    font-size: 18px;
-    margin-bottom: 12px;
-  }
-
-  .add-to-cart {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-  }
-
-  /* =========================
-     INDEX PAGE CARDS FIX
-  ========================= */
-
-  .category-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .category-card {
-    width: 100%;
-    text-align: center;
-  }
-
 }
-
-
