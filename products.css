@@ -18,8 +18,9 @@
 
 /* Card */
 .product-card {
-  background: transparent;
-  border: none;
+  background: white;
+  padding: 35px;
+  border: 1px solid var(--border-soft);
   display: flex;
   flex-direction: column;
   transition: all 0.35s ease;
