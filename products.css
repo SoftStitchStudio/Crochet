@@ -1,6 +1,6 @@
-/* ===============================
-   PRODUCTS PAGE – PREMIUM BOUTIQUE
-================================= */
+/* =====================================
+   PRODUCTS PAGE – LUXURY BOUTIQUE STYLE
+====================================== */
 
 /* Page Title */
 .page-title {
@@ -12,7 +12,10 @@
   color: #2f2a26;
 }
 
-/* Grid Layout */
+/* ===============================
+   GRID LAYOUT
+================================= */
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -21,34 +24,40 @@
 }
 
 /* ===============================
-   PRODUCT CARD
+   CLICKABLE PRODUCT CARD
 ================================= */
 
 .product-card {
+  text-decoration: none;
+  color: inherit;
   display: flex;
   flex-direction: column;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Image Frame */
+/* Elegant lift */
+.product-card:hover {
+  transform: translateY(-8px);
+}
+
+/* ===============================
+   UNIFORM IMAGE FRAME
+================================= */
+
 .product-image {
-  background: linear-gradient(145deg, #f6f3ee, #ede7df);
-  padding: 35px;
-  margin-bottom: 22px;
+  height: 280px;                 /* consistent height */
   border-radius: 14px;
-  transition: all 0.4s ease;
+  overflow: hidden;
+  background: linear-gradient(145deg, #f6f3ee, #ede7df);
+  margin-bottom: 22px;
+  transition: box-shadow 0.4s ease;
 }
 
 .product-image img {
   width: 100%;
-  height: 250px;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;             /* stretch consistently */
   transition: transform 0.4s ease;
-}
-
-/* Hover Effects */
-.product-card:hover {
-  transform: translateY(-8px);
 }
 
 .product-card:hover .product-image {
@@ -79,7 +88,7 @@
 }
 
 /* ===============================
-   ACTIONS
+   ACTION SECTION
 ================================= */
 
 .product-actions {
@@ -94,8 +103,8 @@
   text-decoration: none;
   color: #8a8076;
   position: relative;
-  transition: 0.3s ease;
   letter-spacing: 0.5px;
+  transition: 0.3s ease;
 }
 
 .view-link::after {
@@ -113,7 +122,7 @@
   width: 100%;
 }
 
-/* Add to Cart Button */
+/* Premium Add to Cart */
 .product-actions button {
   background: #b76e50;
   color: white;
@@ -122,8 +131,8 @@
   font-size: 13px;
   letter-spacing: 1px;
   border-radius: 25px;
-  transition: all 0.3s ease;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .product-actions button:hover {
@@ -152,8 +161,8 @@
     padding: 0 6% 100px;
   }
 
-  .product-image img {
-    height: 220px;
+  .product-image {
+    height: 240px;
   }
 
   .page-title {
