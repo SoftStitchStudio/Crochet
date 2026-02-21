@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Products | Soft Stitch Studio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Product | Soft Stitch Studio</title>
 
   <link rel="stylesheet" href="base.css">
-  <link rel="stylesheet" href="products.css">
+  <link rel="stylesheet" href="product.css">
 </head>
 
 <body>
 
-  <!-- HEADER -->
+<!-- HEADER -->
   <header class="header">
     <h1>Soft Stitch Studio</h1>
     <nav>
@@ -23,64 +24,62 @@
     </nav>
   </header>
 
-  <!-- MAIN CONTENT -->
+  <!-- MAIN -->
   <main class="page-wrapper">
     <div class="container">
-
-      <h2 class="page-title">Products</h2>
-
-      <div id="productList" class="product-grid"></div>
-
+      <div id="productDetail"></div>
     </div>
   </main>
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="footer-brand">
-      © 2026 Soft Stitch Studio
-    </div>
-    <div class="footer-signature">
-      Handmade with 🧶 & ❤️ by <span>Ruchika Chouhan</span>
-    </div>
-  </footer>
+  <div class="footer-brand">
+    © 2026 Soft Stitch Studio
+  </div>
+  <div class="footer-signature">
+    Handmade with 🧶 & ❤️ by <span>Ruchika Chouhan</span>
+  </div>
+</footer>
 
-  <!-- SCRIPTS -->
+
   <script src="cart.js"></script>
   <script src="products.js"></script>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const category = params.get("category");
+    const id = new URLSearchParams(window.location.search).get("id");
+    const p = products.find(x => x.id === id);
 
-    const list = document.getElementById("productList");
+    document.getElementById("productDetail").innerHTML = `
+      <section class="product-container">
 
-    products
-      .filter(p => p.category === category)
-      .forEach(p => {
-        list.innerHTML += `
-          <div class="product-card" onclick="window.location.href='product.html?id=${p.id}'">
+        <div class="product-image">
+          <img src="${p.image}" alt="${p.name}">
+        </div>
 
-            <div class="product-image">
-              <img src="${p.image}" alt="${p.name}">
-            </div>
+        <div class="product-info">
+          <h2>${p.name}</h2>
 
-            <div class="product-info">
-              <h3>${p.name}</h3>
-              <p class="price">₹ ${p.price}</p>
-            </div>
+          <p class="product-desc">${p.description}</p>
 
-            <div class="product-actions">
-
-              <!-- Remove separate View link (card is clickable) -->
-
-              <button onclick='event.stopPropagation(); addToCart(${JSON.stringify(p)})'>
-                Add to Cart
-              </button>
-
-            </div>
+          <div class="price-box">
+            <span class="price">₹ ${p.price}</span>
+            <span class="made-to-order">Made to Order</span>
           </div>
-        `;
-      });
+
+          <button class="add-to-cart"
+            onclick='addToCart(${JSON.stringify(p)})'>
+            Add to Cart
+          </button>
+
+          <div class="product-meta">
+            <p>🧶 100% Handmade</p>
+            <p>🚚 Ships in 5–7 days</p>
+            <p>🎁 Perfect for gifting</p>
+          </div>
+        </div>
+
+      </section>
+    `;
 
     updateCartCount();
   </script>
