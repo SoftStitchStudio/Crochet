@@ -1,28 +1,90 @@
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 60px auto;
-  padding: 0 20px;
+/* ================================
+   PREMIUM SCANDINAVIAN LISTING
+================================ */
+
+.page-title {
+  text-align: center;
+  font-size: 44px;
+  font-weight: 500;
+  margin-bottom: 70px;
+  letter-spacing: 0.5px;
 }
 
+/* Grid Layout */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Category Card */
 .category-grid a {
   background: var(--bg-card);
-  padding: 50px 30px;
-  text-align: center;
-  font-size: 18px;
-  font-weight: 600;
-  border-radius: 20px;
   border: 1px solid var(--border-soft);
   text-decoration: none;
   color: var(--text-dark);
-  transition: all 0.3s ease;
-  box-shadow: var(--shadow-soft);
+  padding: 70px 40px;
+  text-align: center;
+  transition: all 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
 }
 
+/* Subtle hover lift */
 .category-grid a:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
-  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Category Title */
+.category-grid h3 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+/* Category Subtitle */
+.category-grid p {
+  font-size: 15px;
+  color: #777;
+  letter-spacing: 0.3px;
+}
+
+/* Elegant bottom accent line */
+.category-grid a::after {
+  content: "";
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+  margin: 25px auto 0;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.category-grid a:hover::after {
+  opacity: 1;
+  width: 70px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 768px) {
+
+  .page-title {
+    font-size: 32px;
+    margin-bottom: 50px;
+  }
+
+  .category-grid {
+    gap: 35px;
+  }
+
+  .category-grid a {
+    padding: 50px 30px;
+  }
 }
