@@ -1,32 +1,34 @@
 .page-title {
   text-align: center;
-  font-size: 40px;
-  margin-bottom: 60px;
+  font-size: 42px;
+  margin-bottom: 70px;
+  font-weight: 500;
 }
 
 .category-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
+  gap: 40px;
 }
 
 .category-grid .card {
   background: var(--bg-card);
-  padding: 50px 30px;
-  border-radius: 20px;
+  padding: 60px 30px;
+  border: 1px solid var(--border-soft);
   text-align: center;
-  box-shadow: var(--shadow-soft);
   transition: 0.3s ease;
 }
 
 .category-grid .card:hover {
-  transform: translateY(-6px);
+  border-color: var(--accent);
 }
 
 .category-grid .card h3 {
   margin-bottom: 10px;
+  font-weight: 500;
 }
 
 .category-grid .card p {
   color: #777;
+  font-size: 14px;
 }
