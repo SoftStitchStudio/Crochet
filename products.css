@@ -1,40 +1,35 @@
-/* ===============================
-   EDITORIAL PRODUCT GRID
-=============================== */
-
 .page-title {
   text-align: center;
-  font-size: 44px;
+  font-size: 46px;
+  margin: 100px 0 90px;
   font-weight: 500;
-  margin-bottom: 80px;
 }
 
-/* Grid layout */
+/* Editorial grid */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 80px 60px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 90px 70px;
+  padding: 0 8%;
 }
 
-/* Remove boxed feeling */
+/* Remove boxed look */
 .product-card {
   display: flex;
   flex-direction: column;
-  border: none;
-  background: transparent;
 }
 
-/* Clean image — no background */
+/* Elegant image block */
 .product-image {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  margin-bottom: 25px;
+  background: var(--bg-soft);
+  padding: 60px;
+  margin-bottom: 35px;
+  transition: 0.4s ease;
 }
 
 .product-image img {
   width: 100%;
-  height: 100%;
+  height: 280px;
   object-fit: contain;
   transition: transform 0.4s ease;
 }
@@ -43,45 +38,43 @@
   transform: scale(1.04);
 }
 
-/* Product name */
+/* Name */
 .product-info h3 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
 /* Price */
 .price {
-  font-size: 15px;
-  color: #777;
-  margin-bottom: 18px;
+  font-size: 16px;
+  color: var(--text-light);
+  margin-bottom: 25px;
 }
 
-/* Action row */
+/* Actions */
 .product-actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* View link */
 .view-link {
-  font-size: 14px;
   text-decoration: none;
-  color: #777;
-  transition: 0.3s ease;
+  color: var(--text-light);
+  font-size: 14px;
 }
 
 .view-link:hover {
   color: var(--accent);
 }
 
-/* Add to Cart */
+/* Refined button */
 .product-actions button {
   background: transparent;
   border: 1px solid var(--accent);
   color: var(--accent);
-  padding: 6px 16px;
+  padding: 7px 20px;
   font-size: 14px;
   transition: 0.3s ease;
 }
